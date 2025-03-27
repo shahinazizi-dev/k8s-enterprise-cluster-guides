@@ -1,0 +1,47 @@
+apiVersion: kubeadm.k8s.io/v1beta3
+bootstrapTokens:
+- groups:
+  - system:bootstrappers:kubeadm:default-node-token
+  token: w52uvj.kldjjervmqli4y3x
+  ttl: 24h0m0s
+  usages:
+  - signing
+  - authentication
+kind: InitConfiguration
+localAPIEndpoint:
+  advertiseAddress: 10.57.0.16
+  bindPort: 6443
+nodeRegistration:
+  criSocket: /run/containerd/containerd.sock
+  imagePullPolicy: IfNotPresent
+  name: opkbhfpskdp0101.p.fnst
+  taints:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
+---
+apiServer:
+  timeoutForControlPlane: 4m0s
+apiVersion: kubeadm.k8s.io/v1beta3
+certificatesDir: /etc/kubernetes/pki
+clusterName: kubernetes
+controlPlaneEndpoint: 10.57.0.36:6443
+controllerManager: {}
+dns: {}
+etcd:
+  external:
+    caFile: /etc/kubernetes/pki/etcd/ca.pem
+    certFile: /etc/kubernetes/pki/etcd/etcd.pem
+    endpoints:
+    - https://10.57.0.19:2379
+    - https://10.57.0.20:2379
+    - https://10.57.0.21:2379
+    keyFile: /etc/kubernetes/pki/etcd/etcd-key.pem
+imageRepository: opkbhfpskdp0101.p.fnst/kubernetes
+kind: ClusterConfiguration
+kubernetesVersion: v1.28.11
+networking:
+  dnsDomain: cluster.local
+  podSubnet: 192.168.16.0/20
+  serviceSubnet: 10.96.0.0/12
+scheduler: {}
+                                              
