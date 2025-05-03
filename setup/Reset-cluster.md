@@ -26,7 +26,7 @@
     
 Note: when you have a etcd cluster and reset master node with " #kubeadm reset" , any object from etcd cluster will note removed automatically an you must reset etcd nodes manually.
 if you dont, when you want to reinitialize kubenrnetes cluster and use " #kubeadm init" command, etcd nodes dont identify that you your request in new and then you will have some problem. 
-so after reset master node with " #kubeadm reset" , you must reset all etcd nodes too.
+so after reset master node with " #kubeadm reset", you must reset all etcd nodes too.
 
 ---------------------------------------------------------------------------------------------------------------------------
 
